@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programação na Prática - E-book Grátis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      font-size: 2.4em;
+      font-weight: 700;
+    }
+
+    header p {
+      font-size: 1.1em;
+      color: #bbbbbb;
+      margin-top: 10px;
+    }
+
+    section {
+      max-width: 600px;
+      width: 100%;
+      margin-bottom: 30px;
+      background-color: #1e1e1e;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 0 15px #00000044;
+    }
+
+    section h2 {
+      font-size: 1.4em;
+      margin-bottom: 10px;
+      color: #00d0ff;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li {
+      margin: 10px 0;
+      display: flex;
+      align-items: center;
+    }
+
+    ul li::before {
+      content: "✅";
+      margin-right: 10px;
+    }
+
+    .img-container {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .img-container img {
+      max-width: 100%;
+      border-radius: 12px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 30px;
+      font-size: 1em;
+      background: #00d0ff;
+      color: #121212;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #00a8cc;
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 0.9em;
+      color: #888;
+      text-align: center;
+    }
+    .img-container {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.ebook-cover {
+  max-width: 280px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #00ffcc33;
+}
+.ebook-cover {
+  width: 240px;
+  max-width: 90%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #00ffcc33;
+  margin: 20px auto;
+  display: block;
+}
+.faq {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 0 20px;
+  color: white;
+}
+
+.faq h2 {
+  font-size: 26px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.faq-item {
+  margin-bottom: 15px;
+  border-radius: 10px;
+  background-color: #111;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.faq-question {
+  background-color: #1a1a1a;
+  color: #00ffff;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 15px 20px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  cursor: pointer;
+}
+
+.faq-answer {
+  display: none;
+  padding: 15px 20px;
+  background-color: #0c0c0c;
+  color: #ccc;
+  border-top: 1px solid #222;
+}
+.faq-item {
+  border-radius: 12px;
+  background: #111;
+  margin-bottom: 12px;
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 16px;
+  font-weight: bold;
+  color: #00ffff;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 16px;
+  color: #ddd;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.faq-item.open .faq-answer {
+  max-height: 200px;
+  padding: 10px 16px 16px;
+}
+
+.faq-question .arrow {
+  transition: transform 0.4s ease;
+}
+
+.faq-item.open .arrow {
+  transform: rotate(180deg);
+}
+#faq-toggle {
+  font-size: 22px;
+  font-weight: bold;
+  color: #00ffff;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.faq-wrapper {
+  display: none;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.faq-wrapper.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 255, 128, 0.4);
+  padding: 10px;
+  z-index: 999;
+  transition: transform 0.2s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>PROGRAMAÇÃO NA PRÁTICA</h1>
+    <p>Guia direto, visual e gratuito pra você lançar seu primeiro projeto com código</p>
+  </header>
+
+  <section>
+  <h2 style="color: #00ffff; margin-bottom: 20px;">O que você vai aprender:</h2>
+  <ul style="list-style: none; padding: 0; color: white; font-size: 16px;">
+    <li style="display: flex; align-items: center; margin-bottom: 10px;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#00ffcc" viewBox="0 0 24 24" style="margin-right: 10px;">
+        <path d="M20.292 5.708a1 1 0 0 0-1.414 0L9 15.586l-3.878-3.878a1 1 0 1 0-1.414 1.414l4.585 4.585a1 1 0 0 0 1.414 0l10.585-10.585a1 1 0 0 0 0-1.414z"/>
+      </svg>
+      O que é programação e como ela funciona
+    </li>
+    <li style="display: flex; align-items: center; margin-bottom: 10px;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#00ffcc" viewBox="0 0 24 24" style="margin-right: 10px;">
+        <path d="M20.292 5.708a1 1 0 0 0-1.414 0L9 15.586l-3.878-3.878a1 1 0 1 0-1.414 1.414l4.585 4.585a1 1 0 0 0 1.414 0l10.585-10.585a1 1 0 0 0 0-1.414z"/>
+      </svg>
+      Como instalar e usar o VSCode do jeito certo
+    </li>
+    <li style="display: flex; align-items: center; margin-bottom: 10px;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#00ffcc" viewBox="0 0 24 24" style="margin-right: 10px;">
+        <path d="M20.292 5.708a1 1 0 0 0-1.414 0L9 15.586l-3.878-3.878a1 1 0 1 0-1.414 1.414l4.585 4.585a1 1 0 0 0 1.414 0l10.585-10.585a1 1 0 0 0 0-1.414z"/>
+      </svg>
+      Os primeiros comandos e estruturas com HTML, CSS e JavaScript
+    </li>
+    <li style="display: flex; align-items: center; margin-bottom: 10px;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#00ffcc" viewBox="0 0 24 24" style="margin-right: 10px;">
+        <path d="M20.292 5.708a1 1 0 0 0-1.414 0L9 15.586l-3.878-3.878a1 1 0 1 0-1.414 1.414l4.585 4.585a1 1 0 0 0 1.414 0l10.585-10.585a1 1 0 0 0 0-1.414z"/>
+      </svg>
+      Como criar um mini site funcional com interatividade real
+    </li>
+    <li style="display: flex; align-items: center; margin-bottom: 10px;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#00ffcc" viewBox="0 0 24 24" style="margin-right: 10px;">
+        <path d="M20.292 5.708a1 1 0 0 0-1.414 0L9 15.586l-3.878-3.878a1 1 0 1 0-1.414 1.414l4.585 4.585a1 1 0 0 0 1.414 0l10.585-10.585a1 1 0 0 0 0-1.414z"/>
+      </svg>
+      Como testar e melhorar seu código sem depender de ninguém
+    </li>
+    <li style="display: flex; align-items: center;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#00ffcc" viewBox="0 0 24 24" style="margin-right: 10px;">
+        <path d="M20.292 5.708a1 1 0 0 0-1.414 0L9 15.586l-3.878-3.878a1 1 0 1 0-1.414 1.414l4.585 4.585a1 1 0 0 0 1.414 0l10.585-10.585a1 1 0 0 0 0-1.414z"/>
+      </svg>
+      Bônus: dicas e recursos pra continuar evoluindo com projetos profissionais
+    </li>
+  </ul>
+
+  <button id="faq-toggle" class="faq-toggle">
+  Perguntas Frequentes
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="margin-left: 8px;">
+    <path d="M6 9l6 6 6-6" stroke="#00ffff" stroke-width="2" stroke-linecap="round"/>
+  </svg>
+</button>
+<div class="faq-wrapper">
+  <!-- todas as div .faq-item aqui dentro -->
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleAnswer(this)">
+        <span>Preciso saber programar para começar?</span>
+        <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none">
+      <path d="M6 9l6 6 6-6" stroke="#00ffff" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    </button>
+    <div class="faq-answer">
+      <p>Não! Esse guia é pra quem tá começando do absoluto zero. Você só precisa ter vontade de aprender.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleAnswer(this)">
+       <span> O conteúdo é realmente gratuito?</span>
+       <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none">
+      <path d="M6 9l6 6 6-6" stroke="#00ffff" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    </button>
+    <div class="faq-answer">
+      <p>Sim! Esse material foi feito pra te ajudar a dar o primeiro passo sem gastar nada.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+   <button class="faq-question" onclick="toggleAnswer(this)">
+        <span>O que vou conseguir fazer depois de ler?</span>
+         <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none">
+      <path d="M6 9l6 6 6-6" stroke="#00ffff" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    </button>
+    <div class="faq-answer">
+      <p>Você vai entender o básico da programação, montar seu primeiro projeto e publicar online com GitHub e Netlify.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+  <button class="faq-question" onclick="toggleAnswer(this)">
+    <span>Em quanto tempo vou conseguir criar meu primeiro projeto?</span>
+         <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none">
+      <path d="M6 9l6 6 6-6" stroke="#00ffff" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+</button>
+  <div class="faq-answer">
+    <p>Você pode colocar seu primeiro projeto no ar ainda hoje! O conteúdo foi feito pra aplicar na prática enquanto aprende.</p>
+  </div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-question" onclick="toggleAnswer(this)">
+    <span>Vai ter parte de back-end ou só front-end?</span>
+         <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none">
+      <path d="M6 9l6 6 6-6" stroke="#00ffff" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+</button>
+  <div class="faq-answer">
+    <p>O foco aqui é front-end, com HTML, CSS e JavaScript. Tudo que você precisa pra lançar seu primeiro site funcional.</p>
+  </div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-question" onclick="toggleAnswer(this)">
+    <span>Posso usar o que aprendi pra criar meu portfólio?</span>
+     <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none">
+      <path d="M6 9l6 6 6-6" stroke="#00ffff" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+</button>
+  <div class="faq-answer">
+    <p>Com certeza! Esse projeto serve como base pro seu portfólio e pode ser o primeiro passo pra mostrar seu trabalho online.</p>
+  </div>
+</div>
+
+<div class="faq-item">
+   <button class="faq-question" onclick="toggleAnswer(this)">
+    <span>Esse conteúdo é confiável?</span>
+      <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none">
+      <path d="M6 9l6 6 6-6" stroke="#00ffff" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </button>
+  <div class="faq-answer">
+    <p>Sim! O conteúdo foi feito com base em experiência real, focado em prática e com linguagem simples pra iniciantes.</p>
+  </div>
+</div>
+
+<div class="faq-item">
+   <button class="faq-question" onclick="toggleAnswer(this)">
+    <span>Quem está por trás desse material?</span>
+    <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none">
+      <path d="M6 9l6 6 6-6" stroke="#00ffff" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+</button>
+  <div class="faq-answer">
+    <p>Esse material foi criado por programador de verdade que vive na prática e tá comprometido em ajudar quem tá começando.</p>
+  </div>
+</div>
+</section>
+
+  <div class="img-container">
+  <img src="capa.png" alt="Capa do e-book gratuito" class="ebook-cover">
+</div>
+</div>
+
+<a href="https://wa.me/+5511953287986text=Ol%C3%A1%2C+quero+saber+mais+sobre+o+conte%C3%BAdo+de+programa%C3%A7%C3%A3o" 
+   class="whatsapp-float" 
+   target="_blank" 
+   aria-label="Fale comigo no WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="#25D366" viewBox="0 0 24 24">
+    <path d="M12.003 2.002a9.994 9.994 0 0 0-8.48 15.158L2 22l4.992-1.519a10 10 0 1 0 5.011-18.479zm0 18.002a8.004 8.004 0 0 1-4.086-1.123l-.292-.173-2.958.9.911-2.88-.189-.3A8.003 8.003 0 1 1 12.003 20.004zm4.6-5.555c-.252-.126-1.49-.734-1.72-.818-.231-.084-.398-.126-.566.127-.168.252-.652.818-.8.986-.147.168-.294.189-.546.063-.252-.126-1.064-.392-2.026-1.25-.748-.665-1.253-1.49-1.399-1.742-.147-.252-.016-.388.11-.513.113-.112.252-.294.378-.441.126-.147.168-.252.252-.42.084-.168.042-.315-.021-.441-.063-.126-.567-1.368-.776-1.873-.204-.49-.412-.423-.567-.43l-.483-.01c-.147 0-.42.063-.64.294-.22.231-.84.819-.84 1.998 0 1.18.86 2.322.98 2.481.126.168 1.692 2.583 4.106 3.624.574.247 1.022.394 1.37.503.575.183 1.097.158 1.51.096.461-.068 1.49-.609 1.7-1.198.21-.59.21-1.096.147-1.199-.063-.105-.231-.168-.483-.294z"/>
+  </svg>
+</a>
+
+  <a class="btn" href="https://seu-link-de-download-ou-hotmart" target="_blank">Baixar E-book Grátis</a>
+
+  <footer>
+    <p>© 2025 eu programandor. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+  const questions = document.querySelectorAll('.faq-question');
+
+  questions.forEach(q => {
+    q.addEventListener('click', () => {
+      const answer = q.nextElementSibling;
+      answer.style.display = (answer.style.display === 'block') ? 'none' : 'block';
+    });
+  });
+
+  function toggleAnswer(button) {
+    const item = button.closest('.faq-item');
+    item.classList.toggle('open');
+  }
+    document.getElementById('faq-toggle').addEventListener('click', function () {
+    document.querySelector('.faq-wrapper').classList.toggle('active');
+  });
+</script>
+</body>
+</html>
