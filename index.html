@@ -410,7 +410,17 @@
   </svg>
 </a>
 
-  <a class="btn" href="https://seu-link-de-download-ou-hotmart" target="_blank">Baixar E-book Grátis</a>
+  <div style="text-align: center; margin-top: 20px;">
+ <a href="https://pay.hotmart.com/F99900676B?checkoutMode=2"
+   class="hotmart-fb hotmart__button-checkout"
+   target="_blank"
+   rel="noopener noreferrer">
+    <img src="https://static.hotmart.com/img/btn-buy-green.png" 
+         alt="Comprar Agora" 
+         style="max-width: 220px; width: 100%; height: auto;">
+  </a>
+</div>
+
 
   <footer>
     <p>© 2025 eu programandor. Todos os direitos reservados.</p>
@@ -433,6 +443,21 @@
     document.getElementById('faq-toggle').addEventListener('click', function () {
     document.querySelector('.faq-wrapper').classList.toggle('active');
   });
+</script>
+
+<script type="text/javascript">
+  function importHotmart(){ 
+    var imported = document.createElement('script'); 
+    imported.src = 'https://static.hotmart.com/checkout/widget.min.js'; 
+    document.head.appendChild(imported); 
+
+    var link = document.createElement('link'); 
+    link.rel = 'stylesheet'; 
+    link.type = 'text/css'; 
+    link.href = 'https://static.hotmart.com/css/hotmart-fb.min.css'; 
+    document.head.appendChild(link);
+  } 
+  importHotmart(); 
 </script>
 </body>
 </html>
